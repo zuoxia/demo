@@ -31820,7 +31820,8 @@ try {
   const domains = core.getInput('domains');
   console.log(`Hello ${nameToGreet}!`);
   console.log(`${domains}`);
-  const t = domains.split('\n').map(domain => domain.trim()).filter(Boolean);
+  // const t = domains.split('\n').map(domain => domain.trim()).filter(Boolean);
+  const t = domains.split(/[\r\n]/).map(input => input.trim()).filter(input => input !== '');
   console.log(`${t}`);
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
